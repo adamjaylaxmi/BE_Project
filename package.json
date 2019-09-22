@@ -21,7 +21,18 @@
   "_shasum": "18330ea7e6e313887f5d2f2a904bac6fe4dd5381",
   "_spec": "async@2.6.2",
   "_where": "D:\\Node_Js\\node_modules\\mongoose",
-  "author": "Caolan McMahon",
+  {
+	"name":"sample-app",
+	"version":"1.0.0",
+	"main":"Server.js",
+	"scripts":{
+	"test":"echo\Error:no test specified\" && exit 1"
+	},
+	"author": "",
+  "license":"ISC",
+  }
+  
+  
   "bugs": {
     "url": "https://github.com/caolan/async/issues"
   },
