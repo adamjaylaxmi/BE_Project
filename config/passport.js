@@ -3,7 +3,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const ObjectId = require("mongodb").ObjectId;
 
 const bcrypt = require("bcryptjs");
-var localStorage = require("localstorage");
+//var localStorage = require("localstorage");
 
 //for login
 module.exports = function(passport) {
@@ -14,25 +14,27 @@ module.exports = function(passport) {
       const mongoose = require("mongoose");
       const userSchema = require("../models/userSchema");
       const user = mongoose.model("user", userSchema, "user");
-
       user.find({ $or: [{ email: email }, { username: email }] }, function(
         err,
         result
       ) {
         console.log("resultds:" + JSON.stringify(result));
-        if (err) console.log(err);
+        if (err) {              console.log(err); }
         else if (JSON.stringify(result) == "[]") {
           console.log("email or username is not valid/registred...");
           return done(null, false, {
             message: "email or username is not valid/registred..."
           });
         } else {
+          console.log('controll is here'+JSON.stringify(user));
+
           //  Match password
           bcrypt.compare(password, result[0].password, (err, isMatch) => {
+            console.log('user pass:',password,'database password',result[0].password);
             if (err) {
               console.log(err);
             }
-            if (isMatch) {
+            if (isMatch || JSON.stringify(password) == JSON.stringify(result[0].password)) {
               console.log("password matched...");
               console.log("resultid:" + result[0]._id);
               //set profileId for current user session

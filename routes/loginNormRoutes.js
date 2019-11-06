@@ -132,8 +132,10 @@ router.post("/register", (req, res) => {
 });
 
 //2.1 ********  UI - login button/failerredirect button i.e. if login fails then redirect to same page *********
-router.get("/login", (req, res) => res.render("login_n"));
-
+router.get("/login", (req, res) => {
+ console.log('loginPage');
+ res.render("login_n");
+});
 router.get("/logout", (req, res) => {
   req.logout();
   req.flash("success_msg", "You are logged out");
@@ -141,6 +143,8 @@ router.get("/logout", (req, res) => {
 });
 //2.2 ******* UI - login/submit after filling data ie. check if user registred or not...
 router.post("/login", (req, res, next) => {
+
+  console.log('data:'+JSON.stringify(req.body));
   passport.authenticate("local", {
     successRedirect: "/loginNorm/loginSuccess", //redirecting to dashboard if user is instructor...
     failureRedirect: "/loginNorm/login",
@@ -150,7 +154,8 @@ router.post("/login", (req, res, next) => {
 
 //2.3 **** if login successull
 router.get("/loginSuccess", function(req, res) {
-  res.render("home", { name: "Team" });
+  console.log('loginSuccess');
+  res.render("Home");
 });
 
 module.exports = router;
