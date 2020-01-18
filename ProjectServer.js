@@ -20,7 +20,7 @@ const urlencodedParser = bodyParser.urlencoded({
 });
 
 // Passport Config
-require("./config/driverPassport")(passport);
+//require("./config/driverPassport")(passport);
 
 require("./config/passport")(passport)
 
@@ -145,14 +145,60 @@ app.get('/T6', function (req, res) {
    res.render('T6'); 
 })
 
-app.get('/login', function (req, res) {
-   console.log("Got a GET request for the travel agent request");
-   res.render('login_n'); 
+app.get('/CustomerLogin', function (req, res) {
+   console.log("Got a GET request for the customer login request");
+   res.render('CustomerLogin'); 
 })
 
-app.get('/driverlogin', function (req, res) {
-   console.log("Got a GET request for the Driver login");
-   res.render('driverLogin'); 
+app.get('/Registration', function (req, res) {
+   console.log("Got a GET request for the customer registration");
+   res.render('Registration'); 
+})
+
+app.get('/BookingInfo', function (req, res) {
+   console.log("Got a GET request for Booking Info");
+   res.render('BookingInfo'); 
+})
+
+app.get('/Payment', function (req, res) {
+   console.log("Got a GET request for Payment ");
+   res.render('Payment'); 
+})
+
+app.get('/CustomerMenu', function (req, res) {
+   console.log("Got a GET request for Customer Menu ");
+   res.render('CustomerMenu'); 
+})
+
+app.get('/MyBooking', function (req, res) {
+   console.log("Got a GET request for My Booking ");
+   res.render('MyBooking'); 
+})
+
+app.get('/MyBooking1', function (req, res) {
+   console.log("Got a GET request for My Booking ");
+   res.render('MyBooking1'); 
+})
+
+app.get('/CustomerFeedback', function (req, res) {
+   console.log("Got a GET request for Customer Feedback ");
+   res.render('CustomerFeedback'); 
+})
+
+app.get('/CancelBooking', function (req, res) {
+   console.log("Got a GET request for Cancel Booking ");
+   res.render('CancelBooking'); 
+})
+
+app.get('/CancelBooking1', function (req, res) {
+   console.log("Got a GET request for Cancel Booking");
+   res.render('CancelBooking1'); 
+})
+
+
+app.get('/VehicleDetails', function (req, res) {
+   console.log("Got a GET request for Vehicle Details ");
+   res.render('VehicleDetails'); 
 })
 
 const PORT = process.env.PORT || 8085;
