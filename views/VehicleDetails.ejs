@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box
+}
+
+body {
+  background-color: #b0e0e6;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 9px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  opacity: 0.9;
+}
+
+
+button:hover {
+  opacity:1;
+}
+
+.container {
+  padding: 10px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+fieldset {
+    text-align: center;
+    width: 500px;
+    position: center;
+}
+
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Solapur Travel and Tourism</title>
+
+<link href="/images/logo1.ico" rel="shortcut icon" />
+
+</head>
+<body>
+
+        <h2>Vehicle Details</h2>
+
+        <img src="smiley.gif" >
+
+        <center><fieldset>
+          <form action="rating.html">
+          <div class="container"><br>
+           
+            <div class="row">
+              <div class="col-25">
+                <label for="name">Name</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="name" value ="" disabled><br>
+              </div>
+            </div>
+    
+    
+            <div class="row">
+              <div class="col-25">
+                <label for="capacity">Capacity</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="capacity" value ="" disabled><br>
+              </div>
+            </div>
+    
+    
+            <div class="row">
+              <div class="col-25">
+                <label for="type">Type</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="type" value ="" disabled><br>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-25">
+                <label for="price">Price(per km)</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="price" value ="" disabled><br>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-25">
+                <label for="drivername">Driver Name</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="drivername" value ="" disabled><br>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-25">
+                <label for="mobileno">Mobile No</label>
+              </div>
+              <div class="col-75">
+                <input type="text" name="mobileno" value ="" disabled><br>
+            </div>
+
+             <button onclick="myFunction()">Review</button>
+
+           <script>
+            function myFunction() {
+              location.replace("rating.html")
+                    }
+            </script>
+
+            
+        
+          <button type="button" class="button"  height="50px width=100px">Book</button>
+        </fieldset></center>
+
+</body>
+</html>

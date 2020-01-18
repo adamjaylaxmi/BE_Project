@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box
+}
+
+body {
+  background-color: #b0e0e6;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 9px 0;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  opacity: 0.9;
+}
+
+
+button:hover {
+  opacity:1;
+}
+
+.container {
+  padding: 10px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Solapur Travel and Tourism</title>
+
+<link href="/images/logo1.ico" rel="shortcut icon" />
+
+</head>
+<body>
+    <img src="smiley.gif" alt="Name">
+    <input type="text" name="name" value ="" disabled><br>
+    <button onclick="myFunction()">View Details</button>
+
+    <button type="cancelbutton" class="Cancelbutton" onclick="window.location.href = 'CancelBooking';" height="50px width=100px">CancelBooking</button>
+      <form action="">
+      <div class="container"><br>
+       
+        <div class="row">
+          <div class="col-25">
+            <label for="name">Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="name" value ="" disabled><br>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-25">
+            <label for="MobileNo">Mobile No</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="MobileNo" value ="" disabled><br>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-25">
+            <label for="datetime">Date-Time</label>
+          </div>
+          <div class="col-75">
+            <input type="datetime-local" name="datetime" value ="" disabled><br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="Pickup_Place">Pickup Place</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="Pickup_Place" value ="" disabled><br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="drivername">Driver Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="drivername" value ="" disabled><br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="noofpassenger">No Of Passenger</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="noofpassenger" value ="" disabled><br>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="totalcost">Total Cost</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="totalcost" value ="" disabled><br>
+        </div>
+        <div class="col-75">
+          <center><button type="button1" class="updatebutton">Update</button></center>
+        </div>
+    </div>
+
+
+
+    
+</body>
+</html>

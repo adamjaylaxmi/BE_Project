@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box
+}
+
+body {
+  background-color: #b0e0e6;
+}
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  opacity: 0.9;
+}
+
+
+button:hover {
+  opacity:1;
+}
+
+.container {
+  padding: 10px;
+}
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+input[type=text] {
+  width: 50%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+fieldset {
+    text-align: center;
+    width: 500px;
+    position: center;
+}
+
+</style>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Solapur Travel and Tourism</title>
+
+<link href="/images/logo1.ico" rel="shortcut icon" />
+
+</head>
+<body>
+    <center><fieldset>
+      <div class="container"><br>
+       
+        <div class="row">
+          <div class="col-25">
+            <label for="tourcost">Tour Cost</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="tourcost" value ="" disabled><br>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-25">
+            <label for="driverprice">Driver Price</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="driverprice" value ="" disabled><br>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="Vehicle">Vehicle(per km)</label>
+          </div>
+          <div class="col-75">
+            <input type="text" name="Vehicle" value ="" disabled><br>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+              <label for="total ">Total kilometer</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="total" value ="" disabled><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+              <label for="totalcost ">Total Cost</label>
+            </div>
+            <div class="col-75">
+              <input type="text" name="totalcost" value ="" disabled><br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+              <label for="payment ">Advance Payment</label>
+            </div>
+            <div class="col-75">
+            <textarea rows="3" cols="30"></textarea><br>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-100">
+          <center><button type="button" class="button">Make Payment</button></center>
+        </div>
+    </div></fieldset></center>
+
+
+
+    
+</body>
+</html>
