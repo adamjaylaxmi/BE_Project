@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const bodyParser = require("body-parser");
 const userSchema = require("../models/userSchema");
+const regModel = require('../models/regModel');
+// var   = regModel.regModel;
 const bcrypt = require("bcryptjs");
 const passport = require("passport");
 // var multer  = require('multer');
@@ -22,111 +24,96 @@ const { ensureAuthenticated } = require("../config/auth");
 router.use(bodyParser.json());
 
 // 1.1 ********** UI - register button register page **************
-router.get("/register", (req, res) => res.render("register"));
+router.get("/register", (req, res) => res.render("Registration"));
 
 //1.2f ************ UI - register/submit button after filling data *************
 router.post("/register", (req, res) => {
   console.log("reqBody:" + JSON.stringify(req.body));
   const {
-    firstname,
-    lastname,
-    email,
-    username,
-    password,
-    password2
+    mobileNo,
+    OTP,
+    psw,
+    pswRepeat
   } = req.body;
 
   let errors = [];
 
   if (
-    !firstname ||
-    !lastname ||
-    !email ||
-    !username ||
-    !password ||
-    !password2
+    !mobileNo ||
+    !OTP ||
+    !psw ||
+    !pswRepeat 
   ) {
     errors.push({ msg: "Please enter all fields" });
   }
+ 
+    if(mobileNo.length > 10){
+       errors.push({msg: "Number is invalid... "});
+    }
 
-  if (password != password2) {
-    errors.push({ msg: "Passwords do not match" });
+  if (psw != pswRepeat) {
+    errors.push({ msg: "psws do not match" });
   }
 
-  if (password.length < 6) {
-    errors.push({ msg: "Password must be at least 6 characters" });
+  if (psw.length < 6) {
+    errors.push({ msg: "psw must be at least 6 characters" });
   }
   //if errors..
   if (errors.length > 0) {
-    res.render("register", {
+    console.log("Errors");
+    res.render("Registration", {
       errors,
-      firstname,
-      lastname,
-      email,
-      username,
-      password,
-      password2
+      mobileNo,
+      OTP,
+      psw,
+      pswRepeat
     });
   }
   //if all details are entered(if none of the field is empty)...
   else {
-    user.find({ email: email }, function(err, result) {
+    regModel.find({ mobileNo : mobileNo }, function(err, result) {
       console.log("reswithor:" + JSON.stringify(result));
       if (err) {
         console.log(err);
       } else if (JSON.stringify(result) == "[]") {
-        //email is unique...
-        user.find({ username: username }, function(err, result) {
-          if (JSON.stringify(result) == "[]") {
-            //username && email is unique...
-            bcrypt.genSalt(10, (err, salt) => {
-              bcrypt.hash(password, salt, (err, hash) => {
-                if (err) throw err;
-                var enc_pass = hash;
-                //insert all user data to db
-                console.log("firstname:" + firstname);
-                var user1 = new user({
-                  firstname: firstname,
-                  lastname: lastname,
-                  email: email,
-                  username: username,
-                  password: enc_pass
-                });
-                // Save the new model instance, passing a callback
-                user1.save(function(err) {
-                  if (err) throw err;
-                  req.flash(
-                    "success_msg",
-                    "You are now registered and can log in"
-                  );
-                  res.redirect("/loginNorm/login");
-                });
+        //Mobile Number is unique...
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(psw, salt, (err, hash) => {
+            var enc_pass = hash;
+  
+              var regModel1  = new regModel({
+                Mobileno : mobileNo,
+                Password : enc_pass
               });
-            });
-          } else {
-            // if username is already exist...
+              
+              regModel1.save(function(err) {
+                if (err) throw err;
+                req.flash(
+                  "success_msg",
+                  "You are now registered and can log in"
+                );
+                res.redirect("/loginNorm/login");
+               });               
+          });        
+        }); //#bcrypt
+
+      } else {
+            // if Mobile number is already exist...
+            console.log("Errors");
             errors.push({
-              msg: "username already Exist Please Try Another One.."
+              msg: "mobileNumber already registered Please Try Another One.."
             });
             renderErrors();
           }
         });
-      } else {
-        //if email already exist
-        errors.push({ msg: "That email is already Exist..." });
-        renderErrors();
       }
-    });
-  }
   function renderErrors() {
-    res.render("register", {
+    res.render("Registration", {
       errors,
-      firstname,
-      lastname,
-      email,
-      username,
-      password,
-      password2
+      mobileNo,
+      OTP,
+      psw,
+      pswRepeat
     });
   }
 });
@@ -134,7 +121,7 @@ router.post("/register", (req, res) => {
 //2.1 ********  UI - login button/failerredirect button i.e. if login fails then redirect to same page *********
 router.get("/login", (req, res) => {
  console.log('loginPage');
- res.render("login_n");
+ res.render("CustomerLogin");
 });
 router.get("/logout", (req, res) => {
   req.logout();

@@ -2,10 +2,24 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="apple-touch-icon" href="https://i.imgur.com/QRAUqs9.png">
+<link rel="shortcut icon" href="https://i.imgur.com/QRAUqs9.png">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.0/css/flag-icon.min.css">
+<link rel="stylesheet" href="/css/cs-skin-elastic.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet" type="text/css">
+
+
 <style>
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
-
-
 
 
 /* Add padding to containers */
@@ -98,18 +112,19 @@ form button[type=submit] {
 </head>
 <body>
         <div id="bg"></div>
-   <form action="">
+   <form action="/loginNorm/register" method="post">
   <div class="container">
     <center><h1>Registration</h1></center>
     <p>Please fill in this form to create an account.</p>
+    <% include ./partials/messages %>  
     <hr>
 
     <label for="Mobile no"><b>Mobile No</b></label>
-    <input type="text" placeholder="Enter Mobile no" name="Mobile no" required>
+    <input type="text" placeholder="Enter Mobile no" name="mobileNo" required>
     <center><a href="#">Verify Mobile</a></center>
 
     <label for="Enter OTP"><b>Enter OTP</b></label>
-    <input type="text" placeholder="Enter OTP" name="Enter OTP" required>
+    <input type="text" placeholder="Enter OTP" name="OTP" required>
     
     <button type="submit" class="Verify">Verify</button>
 
@@ -117,7 +132,7 @@ form button[type=submit] {
     <input type="password" placeholder="Enter Password" name="psw" required>
 
     <label for="psw-repeat"><b>Conform Password</b></label>
-    <input type="password" placeholder="Conform Password" name="psw-repeat" required>
+    <input type="password" placeholder="Conform Password" name="pswRepeat" required>
     <hr>
     
 
@@ -128,3 +143,4 @@ form button[type=submit] {
 </form>
 </body>
 </html>
+
