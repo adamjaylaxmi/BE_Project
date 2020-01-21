@@ -8,13 +8,13 @@ const bcrypt = require("bcryptjs");
 //for login
 module.exports = function(passport) {
   passport.use(
-    new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
+    new LocalStrategy({ usernameField: "Mobileno" }, (Mobileno, Password, done) => {
       localStrategy = true;
 
       const mongoose = require("mongoose");
-      const userSchema = require("../models/userSchema");
-      const user = mongoose.model("user", userSchema, "user");
-      user.find({ $or: [{ email: email }, { username: email }] }, function(
+      const userSchema = require("../models/regSchema");
+      const user = mongoose.model("user", regSchema, "user");
+      user.find({ $or: [{ Mobileno: Mobileno }] }, function(
         err,
         result
       ) {
@@ -23,18 +23,18 @@ module.exports = function(passport) {
         else if (JSON.stringify(result) == "[]") {
           console.log("email or username is not valid/registred...");
           return done(null, false, {
-            message: "email or username is not valid/registred..."
+            message: "Mobileno is not valid/registred..."
           });
         } else {
           console.log('controll is here'+JSON.stringify(user));
 
           //  Match password
-          bcrypt.compare(password, result[0].password, (err, isMatch) => {
-            console.log('user pass:',password,'database password',result[0].password);
+          bcrypt.compare(Password, result[0].Password, (err, isMatch) => {
+            console.log('user pass:',Password,'database password',result[0].Password);
             if (err) {
               console.log(err);
             }
-            if (isMatch || JSON.stringify(password) == JSON.stringify(result[0].password)) {
+            if (isMatch || JSON.stringify(Password) == JSON.stringify(result[0].Password)) {
               console.log("password matched...");
               console.log("resultid:" + result[0]._id);
               //set profileId for current user session

@@ -11,9 +11,9 @@ const MongoClient = require("mongodb").MongoClient;
 // const profileRoutes = require("./routes/profile-routes");
 const login_NormRoutes = require("./routes/loginNormRoutes");
 
-const driverLogin_NormRoutes = require("./routes/driverLoginNormRoutes");
 
-const customerRoutes = require("./routes/customerService");
+
+
 // const fs = require('fs');
 const urlencodedParser = bodyParser.urlencoded({
   extended: true
@@ -66,7 +66,7 @@ app.use(express.static(__dirname + '/routes'));
 console.log("string conn:" + keys.mongodb.dbURI);
 mongoose.connect(keys.mongodb.dbURI, () => {
   console.log("connected to mongodb");
-});
+}, { useUnifiedTopology: true });
 
 app.use(flash());
 
@@ -83,8 +83,8 @@ app.use(function(req, res, next) {
 // app.use("/profile", profileRoutes);
 
 app.use("/loginNorm", login_NormRoutes);
-app.use("/driverLoginNorm", driverLogin_NormRoutes);
-app.use("/customer", customerRoutes);
+
+
 app.use(
   bodyParser.urlencoded({
     extended: true
@@ -155,7 +155,7 @@ app.get('/Registration', function (req, res) {
    res.render('Registration'); 
 })
 
-app.get('/BookingInfo', function (req, res) {
+/*app.get('/BookingInfo', function (req, res) {
    console.log("Got a GET request for Booking Info");
    res.render('BookingInfo'); 
 })
@@ -165,7 +165,7 @@ app.get('/Payment', function (req, res) {
    res.render('Payment'); 
 })
 
-app.get('/CustomerMenu', function (req, res) {
+app.get('/loginSuccess/CustomerMenu', function (req, res) {
    console.log("Got a GET request for Customer Menu ");
    res.render('CustomerMenu'); 
 })
@@ -200,6 +200,7 @@ app.get('/VehicleDetails', function (req, res) {
    console.log("Got a GET request for Vehicle Details ");
    res.render('VehicleDetails'); 
 })
+*/
 
 const PORT = process.env.PORT || 8085;
 app.listen(PORT, function() {

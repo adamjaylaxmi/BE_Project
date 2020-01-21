@@ -142,7 +142,7 @@ router.post("/login", (req, res, next) => {
 //2.3 **** if login successull
 router.get("/loginSuccess", function(req, res) {
   console.log('loginSuccess');
-  res.render("Home");
+  res.render("CustomerMenu");
 });
 
 module.exports = router;

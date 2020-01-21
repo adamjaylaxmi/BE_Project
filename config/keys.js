@@ -7,7 +7,7 @@ module.exports = {
   },
   mongodb: {
     dbURI:
-      "mongodb+srv://adamjaylaxmi:passw@cluster0-tdtig.mongodb.net/company?retryWrites=true&w=majority"
+      "mongodb+srv://adamjaylaxmi:passw@cluster0-tdtig.mongodb.net/BETravelguru?retryWrites=true&w=majority"
   },
   session: {
     cookieKey: "thenetninjaisawesomeiguess"
